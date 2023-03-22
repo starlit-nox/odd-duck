@@ -27,6 +27,7 @@ function getRandomNum() {
 function renderDucks() {
     let duck1 = getRandomNum();
     let duck2 = getRandomNum();
+    let duck3 = getRandomNum();
     
 
     while (duck1 === duck2) {
