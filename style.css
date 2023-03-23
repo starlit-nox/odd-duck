@@ -1,0 +1,33 @@
+body {
+    background-color: white;
+}
+
+.item1 {grid-area: header;}
+.item2 {grid-area: results;}
+.item3 {grid-area: textbox;}
+
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+    'header header header header header header header header header header'
+    'results results textbox textbox textbox textbox textbox textbox textbox textbox'
+    'results results textbox textbox textbox textbox textbox textbox textbox textbox'
+    'results results textbox textbox textbox textbox textbox textbox textbox textbox'
+    'results results textbox textbox textbox textbox textbox textbox textbox textbox';
+gap: 10px;
+background-color: white;
+padding: 10px;}
+
+.grid-container > div {
+    background-color: lightgrey;
+    text-align: center;
+    padding: 20px;
+    font-size: 30px;
+    
+}
+
+
+.duck1 .duck2 .duck3 {
+    display:inline;
+    inline-size: 50px;
+}
