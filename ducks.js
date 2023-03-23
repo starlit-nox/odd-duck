@@ -1,97 +1,70 @@
-`use strict`;
-
-let duckContainer = document.querySelector(`section`);
-let resultButton = document.querySelector(`section + div`);
-let image1 = document.querySelector(`section + div`);
-let image2 = document.querySelector(`section img:first-child`);
-let image3 = document.querySelector(`section img:nth-child(2)`);
-
-let clicks = 0;
-let maxClicksAllowed = 9;
-
-const state = {
-    allDucksArray: [],
-};
-
-function Duck(name, src) {
-    this.name = name;
-    this.src = src;
-    this.views = 0;
-    this.clicks = 0;
-}
-
-function getRandomNum() {
-    return Math.floor(math.random() * state.allDucksArray.length);
-}
-
-function renderDucks() {
-    let duck1 = getRandomNum();
-    let duck2 = getRandomNum();
-    let duck3 = getRandomNum();
-    
-
-    while (duck1 === duck2) {
-        duck2 = getRandomNum();
-    }
-    image1.src = state.allDucksArray[goat1].src;
-    image1.src = state.allDucksArray[goat2].src;
-    image1.src = state.allDucksArray[goat1].name;
-    image1.src = state.allDucksArray[goat2].name;
-    state.allDucksArray[duck1].views++;
-    state.allDucksArray[duck2].views++;
-}
-
-function handleDuckClick(event) {
-    if (event.target === duckContainer) {
-        alert(`Please click on an image`);
-    }
-    clicks++;
-    let clickDuck = event.target.alt;
-    for (let i = 0; o < state.allDucksArray.length; i++) {
-        if (clickDuck === state.allDucksArray[i].name) {
-            state.allDucksArray[i].clicks++;
-            break;
-        }
-}
-if (clicks === maxClicksAllowed) {
-    duckContainer.removeEventListener(`click`, handleDuckClick);
-    resultButton.addEventListener(`click`, renderResults);
-    resultButton.className = `clicks-allowed`;
-    resultButton.className = `no-voting`; 
-} else {
-renderDucks();
-}
-}
-function renderResults() {
-    let ul = document.querySelector(`ul`);
-    for (let i = 0; i < state.allDucksArray.length; i++) {
-        let li = document.createElement('li')
-        li.textContent = `${state.allDucksArray[i].name} had ${state.allDucksArray[i].views} view and was clicked ${state.allGoatsArray[i].clicks} times.`;
-        ul.appendChild(li);
-    }
+// `use strict`;
+function product(productName, imageFilePath) {
+    this.productName = productName
+    this.imageFilePath = imageFilePath
+    this.timesShown = 0
 }
 
 // image codes
-let bag = new Duck(`Bag Prdouct`, `./img/bag.jpg`);
-let banana = new Duck(`Banana Prdouct`, `./img/banana.jpg`);
-let bathroom = new Duck(`Bathroom Prdouct`, `./img/bathroom.jpg`);
-let boots = new Duck(`Boots Prdouct`, `./img/boots.jpg`);
-let breakfast= new Duck(`Breakfast Prdouct`, `./img/breakfast.jpg`);
-let bubblegum = new Duck(`Bubblegum Prdouct`, `./img/bubblegum.jpg`);
-let chair = new Duck(`Chair Prdouct`, `./img/chair.jpg`);
-let cthulhu = new Duck(`Cthulhu Prdouct`, `./img/cthulhu.jpg`);
-let dogDuck = new Duck(`Dog Duck Product`, `./img/dog-duck.jpg`);
-let dragonMeat = new Duck(`Dragon Prdouct`, `./img/dragon.jpg`);
-let pen = new Duck(`Pen Prdouct`, `./img/pen.jpg`);
-let petSweep = new Duck(`Pet Sweep Prdouct`, `./img/pet-sweep.jpg`);
-let scissors = new Duck(`Scissors Prdouct`, `./img/sicssors.jpg`);
-let shark = new Duck(`Shark Prdouct`, `./img/shark.jpg`);
-let babySweep = new Duck(`Sweep Prdouct`, `./img/sweep.jpg`);
-let tauntaun = new Duck(`Tauntaun Prdouct`, `./img/tauntaun.jpg`);
-let unicornMeat = new Duck(`Unicorn Prdouct`, `./img/unicorn.jpg`);
-let waterCan = new Duck(`Water Can Prdouct`, `./img/water-can.jpg`);
-let wineGlass = new Duck(`Wine Prdouct`, `./img/wine-glass.jpg`);
+let bag = new product(`Bag`, `./img/bag.jpg`);
+let banana = new product(`Banana Cutter`, `./img/banana.jpg`);
+let bathroom = new product(`Bathroom`, `./img/bathroom.jpg`);
+let boots = new product(`Boots`, `./img/boots.jpg`);
+let breakfast = new product(`Breakfast Product`, `./img/breakfast.jpg`);
+let bubblegum = new product(`Meatball Bubblegum`, `./img/bubblegum.jpg`);
+let chair = new product(`Chair`, `./img/chair.jpg`);
+let cthulhu = new product(`Cthulhu Idol`, `./img/cthulhu.jpg`);
+let dogDuck = new product(`Dog Duck Costume`, `./img/dog-duck.jpg`);
+let dragonMeat = new product(`Dragon Meat`, `./img/dragon.jpg`);
+let pen = new product(`Pen`, `./img/pen.jpg`);
+let petSweep = new product(`Sweeper for Pets`, `./img/pet-sweep.jpg`);
+let scissors = new product(`Pizza Scissors`, `./img/sicssors.jpg`);
+let shark = new product(`Shark Sleeping Bag`, `./img/shark.jpg`);
+let babySweep = new product(`Sweeper for Baby`, `./img/sweep.jpg`);
+let tauntaun = new product(`Tauntaun`, `./img/tauntaun.jpg`);
+let unicornMeat = new product(`Unicorn Meat`, `./img/unicorn.jpg`);
+let waterCan = new product(`Water Can`, `./img/water-can.jpg`);
+let wineGlass = new product(`Wine Glass`, `./img/wine-glass.jpg`);
+let products = [bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragonMeat, pen, petSweep, scissors, shark, babySweep, tauntaun, unicornMeat, waterCan, wineGlass]
 
-renderDucks();
 
-duckContainer.addEventListener(`click`, handleDuckClick);
+function getRandomProducts(arrayOfProducts) {
+    let randomProducts = []
+    let randomIndex1 = Math.floor(Math.random() * arrayOfProducts.length)
+    let randomIndex2 = Math.floor(Math.random() * arrayOfProducts.length)
+    let randomIndex3 = Math.floor(Math.random() * arrayOfProducts.length)
+
+    while (randomIndex1 === randomIndex2 || randomIndex1 === randomIndex3) {
+        randomIndex1 = randomIndex1 = Math.floor(Math.random()) * arrayOfProducts.length
+        randomIndex2 = Math.floor(Math.random()) * arrayOfProducts.length
+
+    }
+
+    while (randomIndex3 === randomIndex1 || randomIndex3 === randomIndex2) {
+        randomIndex3 = Math.floor(Math.random()) * arrayOfProducts.length
+    }
+
+    let randomProduct1 = arrayOfProducts[randomIndex1]
+    let randomProduct2 = arrayOfProducts[randomIndex2]
+    let randomProduct3 = arrayOfProducts[randomIndex3]
+
+
+    randomProducts.push(randomProduct1)
+    randomProducts.push(randomProduct2)
+    randomProducts.push(randomProduct3)
+
+
+    return randomProducts
+}
+
+let randomProducts = getRandomProducts(products)
+
+function displayProduct(product, imageTagId) {
+    let productImageFilePath = product.imageFilePath
+    let image = document.getElementById(imageTagId)
+    image.src = productImageFilePath
+}
+
+displayProduct(randomProducts[0], "image1")
+displayProduct(randomProducts[1], "image2")
+displayProduct(randomProducts[2], "image3")
