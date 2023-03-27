@@ -30,4 +30,11 @@ padding: 10px;}
 .duck1 .duck2 .duck3 {
     display:inline;
     inline-size: 50px;
+    width: 460px;
+    max-height: 26rem;
+}
+
+img{
+    width: 460px;
+    max-height: 26rem;
 }

@@ -3,6 +3,7 @@ function product(productName, imageFilePath) {
     this.productName = productName
     this.imageFilePath = imageFilePath
     this.timesShown = 0
+    this.clickProduct = 0
 }
 
 // image codes
@@ -18,9 +19,9 @@ let dogDuck = new product(`Dog Duck Costume`, `./img/dog-duck.jpg`);
 let dragonMeat = new product(`Dragon Meat`, `./img/dragon.jpg`);
 let pen = new product(`Pen`, `./img/pen.jpg`);
 let petSweep = new product(`Sweeper for Pets`, `./img/pet-sweep.jpg`);
-let scissors = new product(`Pizza Scissors`, `./img/sicssors.jpg`);
+let scissors = new product(`Pizza Scissors`, `./img/scissors.jpg`);
 let shark = new product(`Shark Sleeping Bag`, `./img/shark.jpg`);
-let babySweep = new product(`Sweeper for Baby`, `./img/sweep.jpg`);
+let babySweep = new product(`Sweeper for Baby`, `./img/sweep.png`);
 let tauntaun = new product(`Tauntaun`, `./img/tauntaun.jpg`);
 let unicornMeat = new product(`Unicorn Meat`, `./img/unicorn.jpg`);
 let waterCan = new product(`Water Can`, `./img/water-can.jpg`);
@@ -34,15 +35,15 @@ function getRandomProducts(arrayOfProducts) {
     let randomIndex2 = Math.floor(Math.random() * arrayOfProducts.length)
     let randomIndex3 = Math.floor(Math.random() * arrayOfProducts.length)
 
-    while (randomIndex1 === randomIndex2 || randomIndex1 === randomIndex3) {
-        randomIndex1 = randomIndex1 = Math.floor(Math.random()) * arrayOfProducts.length
-        randomIndex2 = Math.floor(Math.random()) * arrayOfProducts.length
+    // while (randomIndex1 === randomIndex2 || randomIndex1 === randomIndex3) {
+    //     randomIndex1 = randomIndex1 = Math.floor(Math.random()) * arrayOfProducts.length
+    //     randomIndex2 = Math.floor(Math.random()) * arrayOfProducts.length
 
-    }
+    // }
 
-    while (randomIndex3 === randomIndex1 || randomIndex3 === randomIndex2) {
-        randomIndex3 = Math.floor(Math.random()) * arrayOfProducts.length
-    }
+    // while (randomIndex3 === randomIndex1 || randomIndex3 === randomIndex2) {
+    //     randomIndex3 = Math.floor(Math.random()) * arrayOfProducts.length
+    // }
 
     let randomProduct1 = arrayOfProducts[randomIndex1]
     let randomProduct2 = arrayOfProducts[randomIndex2]
@@ -63,8 +64,32 @@ function displayProduct(product, imageTagId) {
     let productImageFilePath = product.imageFilePath
     let image = document.getElementById(imageTagId)
     image.src = productImageFilePath
+    image.alt = product.productName
 }
 
 displayProduct(randomProducts[0], "image1")
 displayProduct(randomProducts[1], "image2")
 displayProduct(randomProducts[2], "image3")
+
+//  below is the clicker attempt 
+
+let item3 = document.getElementById("item3")
+
+function handleClick(event){
+    if (event.target === item3) {
+        alert(`Please select a product`);
+    }
+    clicks++;
+    let clickProduct = event.target.alt;
+    for (let i = 0; i < state.arrayOfProducts.length; i++) {
+        if (state.arrayOfProducts[i].productName == clickProduct){
+
+        }
+    }
+}
+
+
+// click  attempt ends
+
+
+// lab 12 code below
