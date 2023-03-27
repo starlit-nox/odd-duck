@@ -61,7 +61,7 @@ function getRandomProducts(arrayOfProducts) {
 let randomProducts = getRandomProducts(products)
 
 function displayProduct(product, imageTagId) {
-    let productImageFilePath = product.imageFilePath
+    let productImageFilePath = this.imageFilePath
     let image = document.getElementById(imageTagId)
     image.src = productImageFilePath
     image.alt = product.productName
@@ -73,20 +73,56 @@ displayProduct(randomProducts[2], "image3")
 
 //  below is the clicker attempt 
 
-let item3 = document.getElementById("item3")
+// let item3 = document.getElementById("item3")
 
-function handleClick(event){
+// function handleClick(event){
+//     if (event.target === item3) {
+//         alert(`Please select a product`);
+//     }
+//     clicks++;
+//     let clickProduct = event.target.alt;
+//     for (let i = 0; i < state.arrayOfProducts.length; i++) {
+//         if (state.arrayOfProducts[i].productName == clickProduct){
+
+//         }
+//     }
+// }
+
+let state = {
+    products: products,
+    randomProducts: getRandomProducts(products),
+    rounds: 0,
+}
+
+function handleClick(event) {
     if (event.target === item3) {
         alert(`Please select a product`);
+        return;
     }
-    clicks++;
-    let clickProduct = event.target.alt;
-    for (let i = 0; i < state.arrayOfProducts.length; i++) {
-        if (state.arrayOfProducts[i].productName == clickProduct){
 
+    state.rounds++;
+
+    let clickedProduct = event.target.alt;
+    for (let i = 0; i < state.products.length; i++) {
+        let product = state.products[i];
+        if (product.productName === clickedProduct) {
+            product.clickProduct++;
+            break;
         }
     }
+
+    if (state.rounds >= 25) {
+        // show results
+    } else {
+        state.randomProducts = getRandomProducts(state.products);
+        displayProduct(state.randomProducts[0], "image1");
+        displayProduct(state.randomProducts[1], "image2");
+        displayProduct(state.randomProducts[2], "image3");
+    }
 }
+
+let productContainer = document.getElementById("product-container");
+productContainer.addEventListener("click", handleClick);
 
 
 // click  attempt ends
