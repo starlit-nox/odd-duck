@@ -1,40 +1,70 @@
 body {
-    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #d0e2b6;
+    color: rgb(65, 30, 30);
+    display: block;
+    margin-left: 70px;
+    margin-right: 70px;
 }
 
-.item1 {grid-area: header;}
-.item2 {grid-area: results;}
-.item3 {grid-area: textbox;}
-
-.grid-container {
-    display: grid;
-    grid-template-areas: 
-    'header header header header header header header header header header'
-    'results results textbox textbox textbox textbox textbox textbox textbox textbox'
-    'results results textbox textbox textbox textbox textbox textbox textbox textbox'
-    'results results textbox textbox textbox textbox textbox textbox textbox textbox'
-    'results results textbox textbox textbox textbox textbox textbox textbox textbox';
-gap: 10px;
-background-color: white;
-padding: 10px;}
-
-.grid-container > div {
-    background-color: lightgrey;
-    text-align: center;
-    padding: 20px;
-    font-size: 30px;
-    
+main {
+    width: 1000px;
+    margin: 3rem auto;
 }
 
-
-.duck1 .duck2 .duck3 {
-    display:inline;
-    inline-size: 50px;
-    width: 460px;
-    max-height: 26rem;
+main>div:first-of-type {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10px;
 }
 
-img{
-    width: 460px;
-    max-height: 26rem;
+#logo {
+    width: 100px;
+}
+
+h1 {
+    line-height: .8;
+    margin: 3rem 0 1rem;
+}
+
+section+div {
+    background-color: brown;
+    color: rgb(244, 236, 236);
+    padding: .5rem 1rem;
+    width: max-content;
+    height: max-content;
+    font-size: .8rem;
+    margin: 1rem;
+    border-radius: 0%;
+    row-gap: 1em;
+}
+
+section img {
+    width: 400px;
+    max-height: 20rem;
+    border: 5px solid;
+    margin-right: 10px;
+
+}
+
+section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+section img:hover {
+    border: 5px solid lightgray;
+    cursor: pointer
+}
+
+section+div:hover {
+    cursor: pointer;
+    border: 2px solid gray;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
 }
