@@ -9,12 +9,9 @@ let image3 = document.querySelector("section img:nth-child(3)");
 let click = 0;
 let maxClicksAllowed = 25;
 
-// State object holds the holds the current state of the application (all existing products)
 const state = {
   allproductsArray: [],
 };
-
-// functional logic
 
 function product(path, name) {
   this.name = name;
@@ -28,7 +25,6 @@ function getRandomNumber() {
 }
 
 function renderProducts() {
-  // call the getRandomNumber
   let product1 = getRandomNumber();
   let product2 = getRandomNumber();
   let product3 = getRandomNumber();
@@ -71,8 +67,7 @@ function handleProductClick(event) {
   }
   if (click === maxClicksAllowed) {
     productContainer.removeEventListener("click", handleProductClick);
-    // give the button an event lister and styles so the user
-    // knows its an active button:
+    
     resultButton.addEventListener("click", renderResults);
     resultButton.className = "clicks-allowed";
     productContainer.className = "no-voting";
@@ -137,39 +132,6 @@ state.allproductsArray.push(
 renderProducts();
 
 productContainer.addEventListener("click", handleProductClick);
-
-// function displayChart(){
-//     let productNames = [];
-//     let productVotes = [];
-//     let productViews = [];
-//     productNames.push(state.allProductsArray[i].name);
-//     productVotes.push(state.allProductsArray[i].votes);
-//     productViews.push(state.allProductsArray[i].timesImageViewed);
-// }
-
-// const data = {
-//     labels: productNames,
-//     datasets: [{
-//         label: 'Votes',
-//         data: productVotes,
-//     },
-//     { label: 'Times Viewed',
-//     data: productViews,
-//     }]};
-
-// const config = {
-//   type: 'bar',
-//   data: data,
-//   options: {
-//     scales: {
-//       y: {
-//         beginAtZero: true
-//       }
-//     }
-//   },
-// };
-// let canvasChart = document.getElementById('myChart');
-// const myChart = new Chart(canvasChart, config);
 
 function printChart() {
   let productNames = [];
