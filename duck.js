@@ -104,6 +104,48 @@ function renderResults() {
   }
 }
 
+// executable code
+let bag = new product("./img/bag.jpg", "Bag");
+let banana = new product("./img/banana.jpg", "Banana");
+let bathroom = new product("./img/bathroom.jpg", "Bathroom");
+let boots = new product("./img/boots.jpg", "Boots");
+let breakfast = new product("./img/breakfast.jpg", "Breakfast");
+let bubblegum = new product("./img/bubblegum.jpg", "Bubblegum");
+let chair = new product("./img/chair.jpg", "Chair");
+let cthulu = new product("./img/cthulhu.jpg", "Cthulhu");
+let dogDuck = new product("./img/dog-duck.jpg", "Dog-Duck");
+let dragon = new product("./img/dragon.jpg", "Dragon");
+let pen = new product("./img/pen.jpg", "Pen");
+let petSweep = new product("./img/pet-sweep.jpg", "Pet Sweep");
+let scissors = new product("./img/scissors.jpg", "Scissors");
+let shark = new product("./img/shark.jpg", "Shark");
+let sweep = new product("./img/sweep.png", "Sweep");
+let tauntaun = new product("./img/tauntaun.jpg", "Taun-Taun");
+let unicorn = new product("./img/unicorn.jpg", "Unicorn");
+let waterCan = new product("./img/water-can.jpg", "Water Can");
+let wineGlass = new product("./img/wine-glass.jpg", "Wine Glass");
+state.allproductsArray.push(
+  bag,
+  banana,
+  bathroom,
+  boots,
+  breakfast,
+  bubblegum,
+  chair,
+  cthulu,
+  dogDuck,
+  dragon,
+  pen,
+  petSweep,
+  scissors,
+  shark,
+  sweep,
+  tauntaun,
+  unicorn,
+  waterCan,
+  wineGlass
+);
+
 renderProducts();
 
 function showResults() {
@@ -118,37 +160,46 @@ productContainer.addEventListener("click", handleProductClick);
 const viewResultsBtn = document.querySelector('.view-results-btn');
 viewResultsBtn.addEventListener('click', showResults);
 
+
+// prints the chart to HTML 
 function printChart() {
   // Create an array of labels and data from the imageCount object
   const labels = Object.keys(views);
   const data = Object.values(views);
 
-  // Get the canvas element for the chart
-  const canvas = document.getElementById('myChart');
+  const data = {
+    labels: productNames,
+    datasets: [
+      {
+        label: "Votes",
+        data: productVotes,
+        backgroundColor: ["rgba(255, 99, 132, 0.2)"],
+        borderColor: ["rgb(255, 99, 132)"],
+        borderWidth: 1,
+      },
+      {
+        label: "Times Shown",
+        data: productViews,
+        backgroundColor: ["rgba(255, 159, 64, 0.2)"],
+        borderColor: ["rgb(255, 159, 64)"],
+        borderWidth: 1,
+      },
+    ],
+  };
 
-  // Create the chart using Chart.js
-  const chart = new Chart(canvas, {
-    type: 'bar',
-    data: {
-      labels: labels,
-      datasets: [{
-        label: 'Image Votes',
-        data: data,
-        backgroundColor: [
-            "#000000", "#111111", "#222222", "#333333", "#444444", "#555555", "#666666", "#777777", "#888888", "#999999", "#AAAAAA", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE",
-
-        ]
-      }]
-    },
+  const config = {
+    type: "bar",
+    data: data,
     options: {
-      responsive: true,
-      maintainAspectRatio: true,
-      title: {
-        display: true,
-        text: 'Image Votes'
-      }
-    }
-  });
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  };
+  let canvasChart = document.getElementById("myChart");
+  const myChart = new myChart(canvasChart, config);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
