@@ -69,6 +69,6 @@ section {
 }
 
 img {
-  width: 200px;
-  height: 250px;
+  width: 460px;
+  max-height: 26rem;
 }
