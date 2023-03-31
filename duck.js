@@ -87,7 +87,7 @@ function renderResults() {
   }
 }
 
-// executable code
+// array of product imgs
 let bag = new product("./img/bag.jpg", "Bag");
 let banana = new product("./img/banana.jpg", "Banana");
 let bathroom = new product("./img/bathroom.jpg", "Bathroom");
@@ -107,6 +107,7 @@ let tauntaun = new product("./img/tauntaun.jpg", "Taun-Taun");
 let unicorn = new product("./img/unicorn.jpg", "Unicorn");
 let waterCan = new product("./img/water-can.jpg", "Water Can");
 let wineGlass = new product("./img/wine-glass.jpg", "Wine Glass");
+// this pushes the array through the renderproducts to render them to html
 state.allproductsArray.push(
   bag,
   banana,
@@ -133,6 +134,8 @@ renderProducts();
 
 productContainer.addEventListener("click", handleProductClick);
 
+
+// prints the chart to HTML 
 function printChart() {
   let productNames = [];
   let productVotes = [];
@@ -143,6 +146,8 @@ function printChart() {
     productViews.push(state.allProductsArray[i].timesImageViewed);
   }
 
+
+  // the function to put the data recieved into the bar graph
   const data = {
     labels: productNames,
     datasets: [
@@ -163,6 +168,7 @@ function printChart() {
     ],
   };
 
+  // the function to make sure the bar and data are configured
   const config = {
     type: "bar",
     data: data,
@@ -174,6 +180,8 @@ function printChart() {
       },
     },
   };
+
+  // gets the chart id from HTML and sets it as a variable
   let canvasChart = document.getElementById("myChart");
   const myChart = new myChart(canvasChart, config);
 }
