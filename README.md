@@ -5,4 +5,4 @@
 
 ## Lab 12 Light House Test
 
-!(https://cdn.discordapp.com/attachments/442113342501552147/1091378839508234352/image.png)
+![lab12 lighthouse test](https://cdn.discordapp.com/attachments/442113342501552147/1091378839508234352/image.png)
