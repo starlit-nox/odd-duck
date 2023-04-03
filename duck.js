@@ -40,9 +40,15 @@ function getRandomNumber(array) {
 }
 
 // this calls the getRandomNumber function to generate a random number to randomly select an img
-// this is also getRandomNumber for product 1
 function renderProducts() {
-  const product1Image = getRandomNumber(imageFiles);
+  const usedImages = [];
+  
+  // getRandomNumber for product 1
+  let product1Image = getRandomNumber(imageFiles);
+  while (usedImages.includes(product1Image)) {
+    product1Image = getRandomNumber(imageFiles);
+  }
+  usedImages.push(product1Image);
   image1.src = `img/${product1Image}`;
   if (views[product1Image]) {
     views[product1Image]++;
@@ -50,8 +56,12 @@ function renderProducts() {
     views[product1Image] = 1;
   }
 
-  // this is the getRandomNumber for product 2
-  const product2Image = getRandomNumber(imageFiles);
+  // getRandomNumber for product 2
+  let product2Image = getRandomNumber(imageFiles);
+  while (usedImages.includes(product2Image)) {
+    product2Image = getRandomNumber(imageFiles);
+  }
+  usedImages.push(product2Image);
   image2.src = `img/${product2Image}`;
   if (views[product2Image]) {
     views[product2Image]++;
@@ -59,8 +69,12 @@ function renderProducts() {
     views[product2Image] = 1;
   }
 
-  // this is the getRandomNumber for product 3
-  const product3Image = getRandomNumber(imageFiles);
+  // getRandomNumber for product 3
+  let product3Image = getRandomNumber(imageFiles);
+  while (usedImages.includes(product3Image)) {
+    product3Image = getRandomNumber(imageFiles);
+  }
+  usedImages.push(product3Image);
   image3.src = `img/${product3Image}`;
   if (views[product3Image]) {
     views[product3Image]++;
@@ -68,8 +82,7 @@ function renderProducts() {
     views[product3Image] = 1;
   }
 }
-
-
+  
 // this puts thenm in the html
 const product1Span = document.getElementById('image1');
 const product2Span = document.getElementById('image2');
